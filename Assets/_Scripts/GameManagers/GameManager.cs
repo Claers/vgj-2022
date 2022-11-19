@@ -15,6 +15,7 @@ public enum State
 public class GameManager : MonoBehaviour
 {
     public State state;
+    
 
    
 
@@ -39,5 +40,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+
+    //public void Quit()
+    //{
+    //    Application.Quit;
+    //}
     
 }
