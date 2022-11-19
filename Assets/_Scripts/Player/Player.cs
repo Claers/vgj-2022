@@ -6,49 +6,65 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
-  public PlayerInput Input { get; private set; }
+    public PlayerInput Input { get; private set; }
 
-  public delegate void OnPlayerShoot();
-  public static event OnPlayerShoot onPlayerShoot;
+    public delegate void OnPlayerShoot();
+    public static event OnPlayerShoot onPlayerShoot;
+
+    public static GameEvent onProjectileTouch;
 
 
 
-  private void Awake()
-  {
-    Input = GetComponent<PlayerInput>();
-  }
+    private void Awake()
+    {
+        Input = GetComponent<PlayerInput>();
+    }
 
-  private void OnEnable()
-  {
-    AddInputActionsCallbacks();
-  }
-  private void OnDisable()
-  {
-    RemoveInputActionsCallbacks();
-  }
-  // Start is called before the first frame update
-  void Start()
-  {
-  }
 
-  // Update is called once per frame
-  void Update()
-  {
+    private void OnDisable()
+    {
+        RemoveInputActionsCallbacks();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        AddInputActionsCallbacks();
 
-  }
+    }
 
-  void launchShoot(InputAction.CallbackContext context)
-  {
-    onPlayerShoot?.Invoke();
-  }
+    // Update is called once per frame
+    void Update()
+    {
 
-  protected virtual void AddInputActionsCallbacks()
-  {
-    Input.PlayerActions.Shoot.started += launchShoot;
-  }
+    }
 
-  protected virtual void RemoveInputActionsCallbacks()
-  {
-    Input.PlayerActions.Shoot.started -= launchShoot;
-  }
+    public void launchShoot(InputAction.CallbackContext context)
+    {
+        onPlayerShoot?.Invoke();
+    }
+
+    protected virtual void AddInputActionsCallbacks()
+    {
+        Input.PlayerActions.Shoot.started += launchShoot;
+    }
+
+    protected virtual void RemoveInputActionsCallbacks()
+    {
+        Input.PlayerActions.Shoot.started -= launchShoot;
+    }
+
+    void PlayerDamage()
+    {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag.Contains("EnnemyProjectile"))
+        {
+
+        }
+    }
+
+
 }

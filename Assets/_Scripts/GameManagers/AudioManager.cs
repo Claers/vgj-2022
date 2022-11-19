@@ -4,91 +4,99 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-  //Song beats per minute
-  //This is determined by the song you're trying to sync up to
-  public float songBpm;
+    //Song beats per minute
+    //This is determined by the song you're trying to sync up to
+    public float songBpm;
 
-  //The number of seconds for each song beat
-  public float secPerBeat;
+    //The number of seconds for each song beat
+    public float secPerBeat;
 
-  //Current song position, in seconds
-  public float songPosition;
+    //Current song position, in seconds
+    public float songPosition;
 
-  //Current song position, in beats
-  public float songPositionInBeats;
+    //Current song position, in beats
+    public float songPositionInBeats;
 
-  // Last song pos in beats
-  public float lastSongPositionInBeats = 0;
+    // Last song pos in beats
+    public float lastSongPositionInBeats = 0;
 
-  //How many seconds have passed since the song started
-  public float dspSongTime;
+    //How many seconds have passed since the song started
+    public float dspSongTime;
 
-  //an AudioSource attached to this GameObject that will play the music.
-  public AudioSource musicSource;
-
-
-  //The offset to the first beat of the song in seconds
-  public float firstBeatOffset;
-
-  //the number of beats in each loop
-  public float beatsPerLoop;
-
-  //the total number of loops completed since the looping clip first started
-  public int completedLoops = 0;
-
-  //The current position of the song within the loop in beats.
-  public float loopPositionInBeats;
-
-  //The current relative position of the song within the loop measured between 0 and 1.
-  public float loopPositionInAnalog;
-
-  public GameEvent onBeat;
+    //an AudioSource attached to this GameObject that will play the music.
+    public AudioSource musicSource;
 
 
-  // Start is called before the first frame update
-  void Start()
-  {
-    //Load the AudioSource attached to the Conductor GameObject
-    musicSource = GetComponent<AudioSource>();
+    //The offset to the first beat of the song in seconds
+    public float firstBeatOffset;
 
-    //Calculate the number of seconds in each beat
-    secPerBeat = 60f / songBpm;
+    //the number of beats in each loop
+    public float beatsPerLoop;
 
-    //Record the time when the music starts
-    dspSongTime = (float)AudioSettings.dspTime;
+    //the total number of loops completed since the looping clip first started
+    public int completedLoops = 0;
 
-    //Start the music
-    musicSource.Play();
-  }
+    //The current position of the song within the loop in beats.
+    public float loopPositionInBeats;
 
-  // Update is called once per frame
-  void Update()
-  {
-    //determine how many seconds since the song started
-    songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
+    //The current relative position of the song within the loop measured between 0 and 1.
+    public float loopPositionInAnalog;
 
-    //determine how many beats since the song started
-    songPositionInBeats = songPosition / secPerBeat;
+    public GameEvent onBeat;
 
-    // if songPositionInBeats - lastSongPositionInBeats > 1 we passed a beat so we need to trigger
-    if (songPositionInBeats - lastSongPositionInBeats > 1)
+    public GameEvent onBeforeBeat;
+
+
+    // Start is called before the first frame update
+    void Start()
     {
-      onBeat.Raise();
-      lastSongPositionInBeats = songPositionInBeats;
+        //Load the AudioSource attached to the Conductor GameObject
+        musicSource = GetComponent<AudioSource>();
+
+        //Calculate the number of seconds in each beat
+        secPerBeat = 60f / songBpm;
+
+        //Record the time when the music starts
+        dspSongTime = (float)AudioSettings.dspTime;
+
+        //Start the music
+        musicSource.Play();
     }
 
-    //calculate the loop position
-    if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
+    // Update is called once per frame
+    void Update()
     {
-      completedLoops++;
-    }
-    loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
-  }
+        //determine how many seconds since the song started
+        songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
 
-  public void StopAllPlayingAudio()
-  {
-    musicSource.Stop();
-  }
+        //determine how many beats since the song started
+        songPositionInBeats = songPosition / secPerBeat;
+
+        // preshot the on Beat to make the game less punitive for player input
+        // if (songPositionInBeats - lastSongPositionInBeats > 0.95 && songPositionInBeats - lastSongPositionInBeats < 1)
+        // {
+        //     onBeforeBeat.Raise();
+        // }
+
+        // if songPositionInBeats - lastSongPositionInBeats > 1 we passed a beat so we need to trigger
+        if (songPositionInBeats - lastSongPositionInBeats > 1)
+        {
+            onBeat.Raise();
+            lastSongPositionInBeats = songPositionInBeats;
+        }
+
+        //calculate the loop position
+        if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
+        {
+            completedLoops++;
+        }
+        loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
+    }
+
+    public void StopAllPlayingAudio()
+    {
+        musicSource.Stop();
+    }
 
 
 }
