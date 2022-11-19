@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public enum State
@@ -14,6 +15,8 @@ public enum State
 public class GameManager : MonoBehaviour
 {
     public State state;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -34,4 +37,6 @@ public class GameManager : MonoBehaviour
         Main.Instance.Input.PlayerActions.Move.Disable();
         Main.Instance.Input.PlayerActions.Shoot.Disable();
     }
+
+    
 }
