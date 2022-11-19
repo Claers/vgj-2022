@@ -5,21 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
-    public int BPMShootDelay;
-    public int _BPMShoot;
-    public float inputDelay;
+    public ShootSO shootData;
 
     public bool inBPM;
-
-    public Object projectile;
-
-    public GameObject shootPoint;
-
-    public float zRotation;
+    public int BPMShoot;
 
     [Header("For Player")]
     public float lastInputTime;
-    public float mercyDelay;
     private void OnEnable()
     {
         if (GetComponent<Player>())
@@ -42,14 +34,16 @@ public class Shoot : MonoBehaviour
 
     void InvokeProjectile()
     {
-        Instantiate<Object>(projectile, shootPoint.transform.position, Quaternion.Euler(0, 0, zRotation), transform.parent);
+
+        GameObject projectile = Instantiate<Object>(shootData.projectileType.prefab, transform.position + shootData.shootOffset, Quaternion.Euler(0, 0, shootData.shootZRotation), transform.parent) as GameObject;
+        projectile.GetComponent<ProjectileProp>().projectileData = shootData.projectileType;
     }
 
     public void inBPMTriggerEnemy()
     {
-        if (!_BPMShoot >= BPMShootDelay) return;
+        if (BPMShoot <= shootData.BPMDelay || !GetComponent<Enemy>().isPlayerInRange) return;
         InvokeProjectile();
-        _BPMShoot = 0;
+        BPMShoot = 0;
     }
 
     #region Player
@@ -74,7 +68,7 @@ public class Shoot : MonoBehaviour
     {
         inBPM = true;
         StartCoroutine(resetInBPMTrigger());
-        if (lastInputTime != 0 && Time.time - lastInputTime < mercyDelay)
+        if (lastInputTime != 0 && Time.time - lastInputTime < shootData.mercyDelay)
         {
             MakePlayerShoot();
         }
@@ -86,7 +80,7 @@ public class Shoot : MonoBehaviour
 
     public IEnumerator resetInBPMTrigger()
     {
-        yield return new WaitForSeconds(inputDelay);
+        yield return new WaitForSeconds(shootData.inputDelay);
         inBPM = false;
     }
 

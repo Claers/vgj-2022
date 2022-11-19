@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject leftLimit;
 
     public List<GameObject> healthBees;
+    public GameEventListener bmpEventListener;
 
 
 
@@ -45,7 +46,12 @@ public class Player : MonoBehaviour
         Data.healthBees = healthBees;
         AddInputActionsCallbacks();
 
-
+        foreach (ShootSO shoot in Data.shootDatas)
+        {
+            Shoot shootComp = gameObject.AddComponent<Shoot>();
+            shootComp.shootData = shoot;
+            bmpEventListener.customEvents += shootComp.inBPMTriggerPlayer;
+        }
     }
 
     private void OnDisable()
@@ -106,10 +112,18 @@ public class Player : MonoBehaviour
                 healtBee.GetComponent<SpriteRenderer>().sprite = Data.lowHealthSprite;
             }
         }
+        Data.canBeTouched = false;
+    }
+
+    IEnumerator invulnerabilityCooldown()
+    {
+        yield return new WaitForSeconds(Data.invenurabilityTime);
+        Data.canBeTouched = true;
     }
 
     void PlayerHeal()
     {
+
         Data.PlayerHealth++;
         Data.healthBees[Data.PlayerHealth - 1].SetActive(true);
         if (Data.PlayerHealth > Data.lowHealth)
@@ -123,7 +137,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag.Contains("EnnemyProjectile"))
+        if (other.CompareTag("EnnemyProjectile") || other.CompareTag("Obstacles"))
         {
             PlayerDamage();
         }

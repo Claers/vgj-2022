@@ -21,3 +21,5 @@ MonoBehaviour:
   <healthBees>k__BackingField: []
   <lowHealthSprite>k__BackingField: {fileID: 21300000, guid: 9f65d611d442eab4f88087e1cc3e99b9, type: 3}
   <normalHealthSprite>k__BackingField: {fileID: 21300000, guid: 67aedb6531a20054396cef9315f3ee11, type: 3}
+  <shootDatas>k__BackingField:
+  - {fileID: 11400000, guid: 59544b75b3a6a504fafd68a68e8ba88e, type: 2}
