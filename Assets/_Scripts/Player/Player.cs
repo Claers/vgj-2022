@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public GameObject rightLimit;
     public GameObject leftLimit;
 
+    public List<GameObject> healthBees;
+
 
 
     private void Awake()
@@ -40,8 +42,11 @@ public class Player : MonoBehaviour
         leftLimit.transform.localScale = new Vector3(1, Data.maxDirectionHeight * 2, 1);
 
 
-    }
+        Data.healthBees = healthBees;
+        AddInputActionsCallbacks();
 
+
+    }
 
     private void OnDisable()
     {
@@ -50,7 +55,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddInputActionsCallbacks();
 
     }
 
@@ -63,7 +67,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
     }
 
     void Move()
@@ -74,7 +77,7 @@ public class Player : MonoBehaviour
         }
 
         Vector2 playerMovement = Data.MovementInput * Data.PlayerSpeed;
-        transform.position += new Vector3(playerMovement.x, playerMovement.y, 0) + Main.Instance.CameraManager.baseMovement;
+        transform.position += new Vector3(playerMovement.x, playerMovement.y, 0);
     }
 
     public void launchShoot(InputAction.CallbackContext context)
@@ -95,6 +98,27 @@ public class Player : MonoBehaviour
     void PlayerDamage()
     {
         Data.PlayerHealth--;
+        Data.healthBees[Data.PlayerHealth - 1].SetActive(false);
+        if (Data.PlayerHealth <= Data.lowHealth)
+        {
+            foreach (GameObject healtBee in Data.healthBees)
+            {
+                healtBee.GetComponent<SpriteRenderer>().sprite = Data.lowHealthSprite;
+            }
+        }
+    }
+
+    void PlayerHeal()
+    {
+        Data.PlayerHealth++;
+        Data.healthBees[Data.PlayerHealth - 1].SetActive(true);
+        if (Data.PlayerHealth > Data.lowHealth)
+        {
+            foreach (GameObject healtBee in Data.healthBees)
+            {
+                healtBee.GetComponent<SpriteRenderer>().sprite = Data.normalHealthSprite;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -102,6 +126,10 @@ public class Player : MonoBehaviour
         if (other.tag.Contains("EnnemyProjectile"))
         {
             PlayerDamage();
+        }
+        if (other.tag.Contains("PlayerHeal"))
+        {
+            PlayerHeal();
         }
     }
 

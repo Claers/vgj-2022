@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36cad61ed4abc464ead9c6f1bae1c639
+guid: c76f681bba4910d40974ffc12221ca3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,91 +129,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Ruches original_0
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 253
-        width: 533
-        height: 827
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 61.5, y: 226.5}
-        - {x: -166.5, y: 218.5}
-        - {x: -263.5, y: 221.5}
-        - {x: -263.5, y: 250.5}
-        - {x: 219.5, y: 314.5}
-        - {x: 212.5, y: 234.5}
-      - - {x: -9.5, y: -324.5}
-        - {x: -85.5, y: -232.5}
-        - {x: -173.5, y: -123.5}
-        - {x: -171.5, y: -73.5}
-        - {x: -94.5, y: 60.5}
-        - {x: -34.5, y: 58.5}
-        - {x: -20.5, y: 141.5}
-        - {x: -9.5, y: 87.5}
-        - {x: 7.5, y: 145.5}
-        - {x: 16.5, y: 60.5}
-        - {x: 58.5, y: 55.5}
-        - {x: 115.5, y: -12.5}
-        - {x: 143.5, y: -49.5}
-        - {x: 142.5, y: -121.5}
-        - {x: 80.5, y: -204.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee3b3d57c4ade1e42a3ee4edcdb5fef1
-      internalID: -1687456852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ruches original_5
-      rect:
-        serializedVersion: 2
-        x: 625
-        y: 333
-        width: 575
-        height: 664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a81846618cf258f49945778d50e45b7f
-      internalID: -2014777702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ruches original_7
-      rect:
-        serializedVersion: 2
-        x: 1202
-        y: 336
-        width: 675
-        height: 629
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ac4f3b3f3e820748894ece40ea872df
-      internalID: 68077872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -224,15 +140,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Ruches original_7: 68077872
-      Ruches original_6: 1243893465
-      Ruches original_4: -1199294985
-      Ruches original_2: -1790237824
-      Ruches original_5: -2014777702
-      Ruches original_1: -1187061512
-      Ruches original_0: -1687456852
-      Ruches original_3: -117855053
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

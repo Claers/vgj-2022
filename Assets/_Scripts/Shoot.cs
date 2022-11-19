@@ -41,7 +41,7 @@ public class Shoot : MonoBehaviour
 
     void InvokeProjectile()
     {
-        Instantiate<Object>(projectile, shootPoint.transform.position, Quaternion.Euler(0, 0, zRotation));
+        Instantiate<Object>(projectile, shootPoint.transform.position, Quaternion.Euler(0, 0, zRotation), transform.parent);
     }
 
     #region Player
