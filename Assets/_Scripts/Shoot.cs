@@ -44,6 +44,11 @@ public class Shoot : MonoBehaviour
         Instantiate<Object>(projectile, shootPoint.transform.position, Quaternion.Euler(0, 0, zRotation), transform.parent);
     }
 
+    public void inBPMTriggerEnemy()
+    {
+
+    }
+
     #region Player
 
 
@@ -62,7 +67,7 @@ public class Shoot : MonoBehaviour
     }
 
 
-    public void inBPMTrigger()
+    public void inBPMTriggerPlayer()
     {
         inBPM = true;
         StartCoroutine(resetInBPMTrigger());
