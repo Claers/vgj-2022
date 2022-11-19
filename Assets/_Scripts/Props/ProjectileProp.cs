@@ -22,7 +22,7 @@ public class ProjectileProp : MonoBehaviour
             r = new Ray(transform.position, direction);
         }
         movementTween = transform.DOMove(r.GetPoint(projectileData.maxDistance), projectileData.speed).SetEase(projectileData.easeType).OnComplete(() => Object.Destroy(gameObject));
-        // transform.rotation = Quaternion.Euler(angle);
+        transform.rotation = angle;
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class ProjectileProp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Destructible"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Destructible") || other.CompareTag("Obstacles"))
         {
             movementTween.Kill();
             Destroy(gameObject);

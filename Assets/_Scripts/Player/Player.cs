@@ -20,10 +20,13 @@ public class Player : MonoBehaviour
     public List<GameObject> healthBees;
     public GameEventListener bmpEventListener;
 
+    public SpriteRenderer mainSprite;
+
 
 
     private void Awake()
     {
+        Main.Instance.MainPlayer = this;
         float vertExtent = Main.Instance.CameraManager.mainCamera.orthographicSize;
         float horzExtent = vertExtent * Screen.width / Screen.height;
 
@@ -78,6 +81,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Data.MovementInput = Main.Instance.Input.PlayerActions.Move.ReadValue<Vector2>();
+
     }
 
     private void FixedUpdate()
@@ -113,19 +117,25 @@ public class Player : MonoBehaviour
 
     void PlayerDamage()
     {
-        Data.PlayerHealth--;
-        Data.healthBees[Data.PlayerHealth - 1].SetActive(false);
-        if (Data.PlayerHealth <= Data.lowHealth)
+        if (Data.canBeTouched)
         {
-            foreach (GameObject healtBee in Data.healthBees)
+            Data.PlayerHealth--;
+            Data.healthBees[Data.PlayerHealth - 1].SetActive(false);
+            if (Data.PlayerHealth <= Data.lowHealth)
             {
-                healtBee.GetComponent<SpriteRenderer>().sprite = Data.lowHealthSprite;
+                foreach (GameObject healtBee in Data.healthBees)
+                {
+                    healtBee.GetComponent<SpriteRenderer>().sprite = Data.lowHealthSprite;
+                }
             }
+            Data.canBeTouched = false;
+            StartCoroutine(InvulnerabilityCooldown());
+            StartCoroutine(OnDamageBlink());
         }
-        Data.canBeTouched = false;
+
     }
 
-    IEnumerator invulnerabilityCooldown()
+    IEnumerator InvulnerabilityCooldown()
     {
         yield return new WaitForSeconds(Data.invenurabilityTime);
         Data.canBeTouched = true;
@@ -154,6 +164,18 @@ public class Player : MonoBehaviour
         if (other.tag.Contains("PlayerHeal"))
         {
             PlayerHeal();
+        }
+    }
+
+    IEnumerator OnDamageBlink()
+    {
+        float startTime = Time.time;
+        while (Time.time - startTime > 1)
+        {
+            mainSprite.color = Color.gray;
+            yield return new WaitForSeconds(0.1f);
+            mainSprite.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

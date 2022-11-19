@@ -5089,6 +5089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "premi\xE8re cage"
       objectReference: {fileID: 0}
+    - target: {fileID: 3417590633189884705, guid: 42ece0ee6924d634e80f329501af4a1f, type: 3}
+      propertyPath: m_TagString
+      value: Destructible
+      objectReference: {fileID: 0}
     - target: {fileID: 3692562838142382589, guid: 42ece0ee6924d634e80f329501af4a1f, type: 3}
       propertyPath: m_RootOrder
       value: -1

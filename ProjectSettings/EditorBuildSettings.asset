@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Test_Flo.unity
-    guid: 1f1d3ed0a8c7de0409a354eeb917a97c
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Scenes/RequiredScenes/DefaultGame.unity
+    guid: eafce509cad5ed54b996b43f1105463d
+  - enabled: 1
+    path: Assets/_Scenes/RequiredScenes/PlayerScene.unity
+    guid: e7642dbf1c3497f458f9f555eebdebe8
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Level1.unity
+    guid: a31e6169a6914064e91b0f6303ca0786
   m_configObjects: {}

@@ -14,6 +14,7 @@ public class Main : MonoBehaviour
     public CameraManager CameraManager { get; private set; }
     public PlayerInput Input { get; private set; }
 
+    [field: SerializeField] public string PlayerScene { get; set; }
     [field: SerializeField] public Player MainPlayer { get; set; }
     private void Awake()
     {
