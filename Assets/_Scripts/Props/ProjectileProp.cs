@@ -8,6 +8,7 @@ public class ProjectileProp : MonoBehaviour
     public ProjectileSO projectileData;
     public DG.Tweening.Tween movementTween;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,11 @@ public class ProjectileProp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        movementTween.Kill();
-        Destroy(this);
+        if (other.CompareTag("Enemy") || other.CompareTag("Destructible"))
+        {
+            movementTween.Kill();
+            Destroy(gameObject);
+        }
     }
 
 }

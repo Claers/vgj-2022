@@ -11,10 +11,7 @@ public class EnemySO : ScriptableObject
 
     [field: SerializeField] public float aimSpeed { get; set; }
 
-    [field: SerializeField] public List<GameObject> shootPoints { get; set; }
-    [field: SerializeField] public List<ProjectileSO> projectileTypes { get; set; }
-
-
+    [field: SerializeField] public List<ShootSO> shootDatas { get; set; }
 
 
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   <maxDistance>k__BackingField: 20
   <easeType>k__BackingField: 32
   tag: PlayerProjectile
+  prefab: {fileID: 3533824125818143103, guid: 3d5c41c48b58b8b419f746f562278c03, type: 3}

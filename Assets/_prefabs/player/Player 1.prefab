@@ -129,13 +129,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6079468324268132137}
   - component: {fileID: 2218481379184753008}
-  - component: {fileID: 7188838553071437900}
   - component: {fileID: 4352409583658965041}
   - component: {fileID: 8154993996773489617}
   - component: {fileID: 1330256963}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,26 +177,6 @@ MonoBehaviour:
   - {fileID: 5402765792552858423}
   - {fileID: 5211873385602254951}
   - {fileID: 96739371112751699}
---- !u!114 &7188838553071437900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7492908684847789223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda7dbb3435fc5746ad104651dd3b274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BPMShootDelay: 1
-  inputDelay: 0.2
-  inBPM: 0
-  projectile: {fileID: 5843475032018381753, guid: 45073fc33fcd8ef49aee05504d4632e0, type: 3}
-  shootPoint: {fileID: 8934645307990389236}
-  zRotation: 0
-  lastInputTime: 0
-  mercyDelay: 0.2
 --- !u!114 &4352409583658965041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,9 +193,9 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7188838553071437900}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
-        m_MethodName: inBPMTrigger
+        m_MethodName: inBPMTriggerPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

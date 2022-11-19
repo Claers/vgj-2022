@@ -15,6 +15,7 @@ public class ProjectileSO : ScriptableObject
     [field: SerializeField] public Ease easeType { get; set; } = Ease.Linear;
 
     [field: SerializeField] public string tag;
+    [field: SerializeField] public UnityEngine.Object prefab;
 
 
 

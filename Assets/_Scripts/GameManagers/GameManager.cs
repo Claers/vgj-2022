@@ -33,5 +33,6 @@ public class GameManager : MonoBehaviour
         state = State.paused;
         Main.Instance.Input.PlayerActions.Move.Disable();
         Main.Instance.Input.PlayerActions.Shoot.Disable();
+        Time.timeScale = 0;
     }
 }
