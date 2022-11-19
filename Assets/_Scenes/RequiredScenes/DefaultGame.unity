@@ -743,8 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6c033d571a9f14cb7bc999d70f78f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HUDScene:
-    m_Handle: 0
+  HUDScene: {fileID: 0}
   PlayerScene:
     m_Handle: 0
   MainMenuScene:
