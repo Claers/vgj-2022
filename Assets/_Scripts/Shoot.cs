@@ -37,11 +37,17 @@ public class Shoot : MonoBehaviour
 
         GameObject projectile = Instantiate<Object>(shootData.projectileType.prefab, transform.position + shootData.shootOffset, Quaternion.Euler(0, 0, shootData.shootZRotation), transform.parent) as GameObject;
         projectile.GetComponent<ProjectileProp>().projectileData = shootData.projectileType;
+        if (GetComponent<Enemy>())
+        {
+            projectile.GetComponent<ProjectileProp>().direction = -GetComponent<Enemy>().weapon.right;
+            projectile.GetComponent<ProjectileProp>().angle = GetComponent<Enemy>().weapon.rotation;
+        }
     }
 
     public void inBPMTriggerEnemy()
     {
-        if (BPMShoot <= shootData.BPMDelay || !GetComponent<Enemy>().isPlayerInRange) return;
+        if (!GetComponent<Enemy>().isPlayerInRange) return;
+        if (BPMShoot <= shootData.BPMDelay) BPMShoot++;
         InvokeProjectile();
         BPMShoot = 0;
     }

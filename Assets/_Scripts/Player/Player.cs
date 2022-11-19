@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
             shootComp.shootData = shoot;
             bmpEventListener.customEvents += shootComp.inBPMTriggerPlayer;
         }
+
+
     }
 
     private void OnDisable()
@@ -61,7 +63,15 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Main.Instance.Input.MenuActions.Pause.started += PauseOut;
+    }
 
+    void PauseOut(InputAction.CallbackContext context)
+    {
+        if (Main.Instance.GameManager.state == State.paused)
+        {
+            Debug.Log("Paused");
+        }
     }
 
     // Update is called once per frame

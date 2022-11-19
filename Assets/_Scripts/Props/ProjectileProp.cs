@@ -8,13 +8,21 @@ public class ProjectileProp : MonoBehaviour
     public ProjectileSO projectileData;
     public DG.Tweening.Tween movementTween;
 
+    public Vector3 direction;
+    public Quaternion angle;
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.tag = projectileData.tag;
         Ray r = new Ray(transform.position, transform.right);
+        if (direction != Vector3.zero)
+        {
+            r = new Ray(transform.position, direction);
+        }
         movementTween = transform.DOMove(r.GetPoint(projectileData.maxDistance), projectileData.speed).SetEase(projectileData.easeType).OnComplete(() => Object.Destroy(gameObject));
+        // transform.rotation = Quaternion.Euler(angle);
     }
 
     // Update is called once per frame
