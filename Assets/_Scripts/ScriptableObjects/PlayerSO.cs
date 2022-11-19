@@ -1,18 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSO : MonoBehaviour
+[Serializable]
+[CreateAssetMenu(fileName = "Player", menuName = "Custom/Characters/Players")]
+public class PlayerSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField] public int PlayerHealth { get; set; } = 3;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [field: SerializeField] public Vector2 MovementInput { get; set; }
+    [field: SerializeField] public float PlayerSpeed { get; set; }
+    [field: SerializeField] public float maxDirectionHeight { get; set; }
+    [field: SerializeField] public float maxDirectionWidth { get; set; }
+
+
 }
+

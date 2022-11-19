@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2959793390218183879}
   - component: {fileID: -2115339660773940227}
   m_Layer: 0
-  m_Name: ProjectileTest
+  m_Name: EnnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cded9cbbe645964d805eb4ce4fc900b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  maxPosition: 20
+  projectileData: {fileID: 11400000, guid: 44c6e7a1bdf2c9d41a8c6bce84b0ad13, type: 2}
 --- !u!58 &-2115339660773940227
 CircleCollider2D:
   m_ObjectHideFlags: 0
