@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Main.Instance.Input.MenuActions.Pause.started += PauseGame;
-
+        Main.Instance.MainPlayer.Data.PlayerHealth = 3;
     }
 
     // Update is called once per frame

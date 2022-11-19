@@ -7,30 +7,32 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
-  public Scene HUDScene;
-  public Scene PlayerScene;
-  public Scene MainMenuScene;
-  public Scene PauseScene;
+    [SerializeField]
+    public UnityEngine.Object HUDScene;
+    [SerializeField]
+    public Scene PlayerScene;
+    public Scene MainMenuScene;
+    public Scene PauseScene;
 
-  private void Awake()
-  {
+    private void Awake()
+    {
 
-  }
+    }
 
-  // Start is called before the first frame update
-  void Start()
-  {
+    // Start is called before the first frame update
+    void Start()
+    {
 
-  }
+    }
 
-  // Update is called once per frame
-  void Update()
-  {
+    // Update is called once per frame
+    void Update()
+    {
 
-  }
+    }
 
-  public void LoadScene(Scene scene)
-  {
-    UnityEngine.SceneManagement.SceneManager.LoadScene(scene.name);
-  }
+    public void LoadScene(Scene scene)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene.name);
+    }
 }
