@@ -127,7 +127,9 @@ GameObject:
   - component: {fileID: 1248583421645740479}
   - component: {fileID: 4549772440551913136}
   - component: {fileID: 119516126750940208}
+  - component: {fileID: -3778216222161875211}
   - component: {fileID: 119516126750940207}
+  - component: {fileID: -3210764947412223096}
   m_Layer: 0
   m_Name: human
   m_TagString: Untagged
@@ -215,11 +217,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188a6172a4a5fbf43a60f2d6e751c80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: 0
-  _lifePoint: 0
+  _lifePoint: 3
   _speed: 100
-  _target: {fileID: 0}
+  _target: {fileID: 1427784181437528066, guid: 3fb290a2afe91fd478e432780f36a6fe, type: 3}
   _weapon: {fileID: 1868414360}
+--- !u!114 &-3778216222161875211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335722152838978016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda7dbb3435fc5746ad104651dd3b274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BPMShootDelay: 0
+  inputDelay: 0
+  inBPM: 0
+  projectile: {fileID: 0}
+  shootPoint: {fileID: 0}
+  zRotation: 0
+  lastInputTime: 0
+  mercyDelay: 0
 --- !u!58 &119516126750940207
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -236,3 +257,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!114 &-3210764947412223096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335722152838978016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca658a9b41c31d547be8fae39995fc23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: da4be8e4bf99271468b82f42c1550d8d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -3778216222161875211}
+        m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
+        m_MethodName: inBPMTriggerEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

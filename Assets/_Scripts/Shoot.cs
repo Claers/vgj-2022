@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Shoot : MonoBehaviour
 {
     public int BPMShootDelay;
+    public int _BPMShoot;
     public float inputDelay;
 
     public bool inBPM;
@@ -46,7 +47,9 @@ public class Shoot : MonoBehaviour
 
     public void inBPMTriggerEnemy()
     {
-
+        if (!_BPMShoot >= BPMShootDelay) return;
+        InvokeProjectile();
+        _BPMShoot = 0;
     }
 
     #region Player
