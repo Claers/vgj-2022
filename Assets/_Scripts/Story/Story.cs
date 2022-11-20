@@ -92,6 +92,7 @@ public class Story : MonoBehaviour
     {
         Main.Instance.CameraManager.mainCamera.gameObject.SetActive(false);
         Main.Instance.CameraManager.UICamera.gameObject.SetActive(false);
+        Main.Insta
     }
 
     void OnDisable()
@@ -110,6 +111,7 @@ public class Story : MonoBehaviour
     {
         if (_step > customActions.Count)
         {
+            Debug.Log(_step > customActions.Count);
             Main.Instance.GameManager.CinematicDone();
             return;
         }
