@@ -37,7 +37,7 @@ public class Main : MonoBehaviour
         // {
         //     SceneManager.LoadScene(SceneManager.scenes.MainMenuScene);
         // }
-        // LaunchGame();
+        LaunchGame();
     }
 
     // Update is called once per frame

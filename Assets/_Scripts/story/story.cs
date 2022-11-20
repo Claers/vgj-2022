@@ -102,8 +102,6 @@ public class Story : MonoBehaviour
 
     public void NextStep()
     {
-        Debug.Log("NextStep");
-        Debug.Log(_step.ToString());
         if (actualCoroutine != null)
         {
             StopCoroutine(actualCoroutine);

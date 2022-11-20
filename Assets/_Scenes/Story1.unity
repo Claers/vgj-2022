@@ -398,7 +398,7 @@ MonoBehaviour:
     dialogToPlay: {fileID: 0}
     musicToPlay: {fileID: 0}
     musicAudioSource: {fileID: 0}
-    dialogAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
     callNext: 1
     delayCallNext: 3
   - type: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
     dialogToPlay: {fileID: 0}
     musicToPlay: {fileID: 0}
     musicAudioSource: {fileID: 0}
-    dialogAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
     callNext: 1
     delayCallNext: 3
   - type: 0
@@ -418,7 +418,97 @@ MonoBehaviour:
     dialogToPlay: {fileID: 0}
     musicToPlay: {fileID: 0}
     musicAudioSource: {fileID: 0}
-    dialogAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 0
+    target: {fileID: 1165480161}
+    moveTo: {x: -10, y: -4.88, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 0}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 1
+    target: {fileID: 1165480161}
+    moveTo: {x: 0, y: 0, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 8300000, guid: a6687a4dcdde14841aa79847e874d5ba, type: 3}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 0
+    target: {fileID: 1165480161}
+    moveTo: {x: 0, y: -4.88, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 0}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 1
+    target: {fileID: 1165480161}
+    moveTo: {x: 0, y: 0, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 8300000, guid: 133cf318d1a3675468f340c0549a0134, type: 3}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 0
+    target: {fileID: 1165480161}
+    moveTo: {x: 8, y: -4.88, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 0}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 1
+    target: {fileID: 1165480161}
+    moveTo: {x: 0, y: 0, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 8300000, guid: 56e0a05bdd813854e8236fc530561470, type: 3}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 0
+    target: {fileID: 1165480161}
+    moveTo: {x: -10, y: -15.67, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 0}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 1
+    target: {fileID: 1165480161}
+    moveTo: {x: -6.1, y: -31.5, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 8300000, guid: 44c0d46741b6ff44ca7e3800c44ddeef, type: 3}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
+    callNext: 1
+    delayCallNext: 3
+  - type: 0
+    target: {fileID: 1165480161}
+    moveTo: {x: 4, y: -15.67, z: -4.36}
+    moveSpeed: 2
+    dialogToPlay: {fileID: 0}
+    musicToPlay: {fileID: 0}
+    musicAudioSource: {fileID: 0}
+    dialogAudioSource: {fileID: 401543581}
     callNext: 1
     delayCallNext: 3
   _step: 0
@@ -627,7 +717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165480161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.24, y: 5.15, z: -4.36}
+  m_LocalPosition: {x: -7.7, y: -15.67, z: -4.36}
   m_LocalScale: {x: 2.3, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
