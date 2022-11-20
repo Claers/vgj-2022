@@ -9,12 +9,10 @@ public class UIManager : MonoBehaviour
     public TMP_Text playerHealtText;
 
     public GameObject pauseMenu;
-    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = Main.Instance.MainPlayer;
         Main.Instance.Input.MenuActions.Pause.started += TooglePauseMenu;
 
     }
@@ -28,7 +26,10 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerHealtText.text = player.Data.PlayerHealth.ToString();
+        if (Main.Instance.GameManager.state == State.playing)
+        {
+            playerHealtText.text = Main.Instance.MainPlayer.Data.PlayerHealth.ToString();
+        }
     }
 
     void TooglePauseMenu(InputAction.CallbackContext context)

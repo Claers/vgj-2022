@@ -6,16 +6,16 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     public PlayerInputs InputActions { get; private set; }
-    public PlayerInputs.GameActions PlayerActions { get; private set; }
-    public PlayerInputs.MenuActions MenuActions { get; private set; }
+    public PlayerInputs.PlayerActions PlayerActions { get; private set; }
+    public PlayerInputs.UIActions MenuActions { get; private set; }
 
     private void Awake()
     {
         InputActions = new PlayerInputs();
 
-        PlayerActions = InputActions.Game;
+        PlayerActions = InputActions.Player;
 
-        MenuActions = InputActions.Menu;
+        MenuActions = InputActions.UI;
     }
 
     private void OnEnable()

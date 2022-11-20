@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public Camera mainCamera;
+    public Camera playerCamera;
+    public Camera UICamera;
     public float scrollingSpeed;
     public Vector3 baseMovement;
     // Start is called before the first frame update
@@ -29,7 +31,7 @@ public class CameraManager : MonoBehaviour
         if (Main.Instance.GameManager.state == State.playing)
         {
             baseMovement = new Vector3(scrollingSpeed, 0, 0);
-            mainCamera.gameObject.transform.position += baseMovement;
+            playerCamera.gameObject.transform.position += baseMovement;
         }
         else
         {

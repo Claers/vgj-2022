@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8abc9646bd2644e8c80b22baa0b181, type: 3}
   m_Name: GunPlayerProjectile
   m_EditorClassIdentifier: 
-  <speed>k__BackingField: 3
+  <speed>k__BackingField: 1
   <scale>k__BackingField: 1
   <maxDistance>k__BackingField: 20
   <easeType>k__BackingField: 32

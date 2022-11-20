@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy stats")]
     public int enemyHealth;
     public Transform weapon;
+    public Transform weaponPivot;
 
     public bool isPlayerInRange;
 
@@ -50,10 +51,9 @@ public class Enemy : MonoBehaviour
 
     public void AnglesRotation(GameObject player)
     {
-        float angle = Mathf.Atan2(player.transform.position.y - weapon.position.y, player.transform.position.x - weapon.position.x) * Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 180));
-        weapon.rotation = Quaternion.RotateTowards(weapon.rotation, targetRotation, enemyData.aimSpeed * Time.deltaTime);
-
+        float angle = Mathf.Atan2(player.transform.position.y - weaponPivot.position.y, player.transform.position.x - weaponPivot.position.x) * Mathf.Rad2Deg;
+        // Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 180));
+        weapon.RotateAround(weaponPivot.position, new Vector3(0, 0, -angle), enemyData.aimSpeed * Time.deltaTime);
     }
 
 }

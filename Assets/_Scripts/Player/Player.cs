@@ -21,13 +21,16 @@ public class Player : MonoBehaviour
     public GameEventListener bmpEventListener;
 
     public SpriteRenderer mainSprite;
+    public Camera playerCamera;
 
 
 
     private void Awake()
     {
         Main.Instance.MainPlayer = this;
-        float vertExtent = Main.Instance.CameraManager.mainCamera.orthographicSize;
+        Main.Instance.CameraManager.playerCamera = playerCamera;
+        Main.Instance.CameraManager.mainCamera.gameObject.SetActive(false);
+        float vertExtent = Main.Instance.CameraManager.playerCamera.orthographicSize;
         float horzExtent = vertExtent * Screen.width / Screen.height;
 
         Data.maxDirectionHeight = vertExtent;
@@ -120,7 +123,7 @@ public class Player : MonoBehaviour
         if (Data.canBeTouched)
         {
             Data.PlayerHealth--;
-            Data.healthBees[Data.PlayerHealth - 1].SetActive(false);
+            Data.healthBees[Data.PlayerHealth].SetActive(false);
             if (Data.PlayerHealth <= Data.lowHealth)
             {
                 foreach (GameObject healtBee in Data.healthBees)

@@ -28,15 +28,17 @@ public class GameManager : MonoBehaviour
         Main.Instance.Input.PlayerActions.Move.Disable();
         Main.Instance.Input.PlayerActions.Shoot.Disable();
         Main.Instance.Input.MenuActions.Pause.started += PauseGameInput;
-        Main.Instance.Input.MenuActions.Next.started += PlayGame;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Main.Instance.MainPlayer.Data.PlayerHealth <= 0)
+        if (state == State.playing)
         {
-            GameOver();
+            if (Main.Instance.MainPlayer.Data.PlayerHealth <= 0)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -53,11 +55,20 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    void PlayGame(InputAction.CallbackContext context)
+    void PlayGameInput(InputAction.CallbackContext context)
+    {
+        PlayGame();
+    }
+
+    public void LoadGame()
+    {
+        Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.PlayerScene);
+        Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.LevelScenes[0]);
+    }
+
+    public void PlayGame()
     {
         state = State.playing;
-        Main.Instance.SceneManager.LoadScene(Main.Instance.PlayerScene);
-        Main.Instance.Input.MenuActions.Next.started -= PlayGame;
         Main.Instance.Input.PlayerActions.Move.Enable();
         Main.Instance.Input.PlayerActions.Shoot.Enable();
         Time.timeScale = 1;
@@ -74,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         Main.Instance.SceneManager.ReloadScene();
         Main.Instance.Input.MenuActions.Next.started -= ReloadSceneInput;
-        Main.Instance.Input.MenuActions.Next.started += PlayGame;
+        Main.Instance.Input.MenuActions.Next.started += PlayGameInput;
     }
 
 
