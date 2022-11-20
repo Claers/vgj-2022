@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 {
     public State state;
 
+    public int lvlNb = 0;
+
 
 
 
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.PlayerScene);
-        Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.LevelScenes[0]);
+        Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.LevelScenes[lvlNb]);
     }
 
     public void PlayGame()
@@ -73,6 +75,26 @@ public class GameManager : MonoBehaviour
         Main.Instance.Input.PlayerActions.Shoot.Enable();
         Time.timeScale = 1;
         Main.Instance.MainPlayer.Data.PlayerHealth = 3;
+    }
+
+    public void LoadCinematic()
+    {
+        Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.CinematicScenes[lvlNb]);
+    }
+
+    public IEnumerator PlayCinematic()
+    {
+        state = State.cinematic;
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(2);
+        Story story = GameObject.FindObjectOfType<Story>();
+        story.NextStep();
+    }
+
+    public void CinematicDone()
+    {
+        Main.Instance.SceneManager.UnloadScene(Main.Instance.SceneManager.scenes.CinematicScenes[lvlNb]);
+
     }
 
     void GameOver()

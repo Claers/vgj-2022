@@ -20,6 +20,9 @@ public class ScenesSO : ScriptableObject
     [field: SerializeField]
     public List<string> LevelScenes;
 
+    [field: SerializeField]
+    public List<string> CinematicScenes;
+
 
 
 }

@@ -18,3 +18,5 @@ MonoBehaviour:
   PauseScene: 
   LevelScenes:
   - Level1
+  CinematicScenes:
+  - Story1

@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  lvlNb: 0
 --- !u!114 &958757700
 MonoBehaviour:
   m_ObjectHideFlags: 0

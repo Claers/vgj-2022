@@ -33,11 +33,11 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // if (!SceneManager.loadedScenes.Contains(SceneManager.GetSceneByName(SceneManager.scenes.MainMenuScene)))
-        // {
-        //     SceneManager.LoadScene(SceneManager.scenes.MainMenuScene);
-        // }
-        LaunchGame();
+        if (!SceneManager.loadedScenes.Contains(SceneManager.GetSceneByName(SceneManager.scenes.MainMenuScene)))
+        {
+            SceneManager.LoadScene(SceneManager.scenes.MainMenuScene);
+        }
+        // LaunchGame();
     }
 
     // Update is called once per frame
@@ -49,8 +49,8 @@ public class Main : MonoBehaviour
     public void LaunchGame()
     {
         SceneManager.UnloadScene(SceneManager.scenes.MainMenuScene);
-        GameManager.LoadGame();
-        GameManager.PlayGame();
+        GameManager.LoadCinematic();
+        StartCoroutine(GameManager.PlayCinematic());
     }
 
     public void QuitGame()

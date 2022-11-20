@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using TMPro;
 
 public enum ActionType
 {
@@ -25,6 +26,12 @@ public class CustomAction
     public AudioSource musicAudioSource;
     public AudioSource dialogAudioSource;
 
+    public TMP_Text dialogTextCanva;
+    public TMP_Text dialogPersonCanva;
+
+    public string dialogText;
+    public string dialogPerson;
+
     public bool callNext;
     public float delayCallNext;
 
@@ -40,6 +47,9 @@ public class CustomAction
     public IEnumerator MoveTo()
     {
         target.transform.DOMove(moveTo, moveSpeed);
+
+        dialogTextCanva.text = "";
+        dialogPersonCanva.text = "";
         yield return null;
     }
 
@@ -52,6 +62,8 @@ public class CustomAction
         };
         dialogAudioSource.clip = dialogToPlay;
         dialogAudioSource.Play();
+        dialogTextCanva.text = dialogText;
+        dialogPersonCanva.text = dialogPerson;
     }
 
     public IEnumerator PlayMusic()
@@ -78,30 +90,29 @@ public class Story : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        Main.Instance.Input.MenuActions.Next.started += NextStepInput;
         Main.Instance.CameraManager.mainCamera.gameObject.SetActive(false);
         Main.Instance.CameraManager.UICamera.gameObject.SetActive(false);
     }
 
     void OnDisable()
     {
-        Main.Instance.Input.MenuActions.Next.started -= NextStepInput;
         Main.Instance.CameraManager.mainCamera.gameObject.SetActive(true);
         Main.Instance.CameraManager.UICamera.gameObject.SetActive(true);
     }
 
     void Start()
     {
-        NextStep();
     }
 
-    public void NextStepInput(InputAction.CallbackContext context)
-    {
-        NextStep();
-    }
+
 
     public void NextStep()
     {
+        if (_step > customActions.Count)
+        {
+            Main.Instance.GameManager.CinematicDone();
+            return;
+        }
         if (actualCoroutine != null)
         {
             StopCoroutine(actualCoroutine);
