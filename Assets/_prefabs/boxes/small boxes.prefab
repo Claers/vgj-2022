@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1912408191667667661}
   - component: {fileID: 7010729320475952940}
+  - component: {fileID: 965311665345033324}
   - component: {fileID: 692612636397489690}
   m_Layer: 0
-  m_Name: Small boxes
+  m_Name: small boxes
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +86,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &965311665345033324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574780828133955036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17124e6c448a964798b0fccedffb812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!68 &692612636397489690
 EdgeCollider2D:
   m_ObjectHideFlags: 0
