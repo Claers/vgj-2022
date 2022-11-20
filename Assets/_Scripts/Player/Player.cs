@@ -167,6 +167,7 @@ public class Player : MonoBehaviour
         if (other.tag.Contains("PlayerHeal"))
         {
             PlayerHeal();
+            Destroy(other.gameObject);
         }
     }
 

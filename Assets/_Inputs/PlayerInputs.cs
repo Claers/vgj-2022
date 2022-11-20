@@ -389,6 +389,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""8039db91-fc04-43e0-97f3-a386863f00bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -864,6 +873,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Next"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""356d6619-5296-4193-bea0-5ec906136895"",
+                    ""path"": ""*/{Submit}"",
+                    ""interactions"": ""Hold(duration=1.5)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -950,6 +970,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Next = m_UI.FindAction("Next", throwIfNotFound: true);
+        m_UI_Skip = m_UI.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1070,6 +1091,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_Next;
+    private readonly InputAction m_UI_Skip;
     public struct UIActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1086,6 +1108,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @Next => m_Wrapper.m_UI_Next;
+        public InputAction @Skip => m_Wrapper.m_UI_Skip;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1131,6 +1154,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Next.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNext;
                 @Next.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNext;
                 @Next.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNext;
+                @Skip.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSkip;
+                @Skip.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSkip;
+                @Skip.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSkip;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1171,6 +1197,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Next.started += instance.OnNext;
                 @Next.performed += instance.OnNext;
                 @Next.canceled += instance.OnNext;
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
             }
         }
     }
@@ -1240,5 +1269,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
 }

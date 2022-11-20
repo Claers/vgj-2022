@@ -15,6 +15,6 @@ MonoBehaviour:
   <projectileType>k__BackingField: {fileID: 11400000, guid: 44c6e7a1bdf2c9d41a8c6bce84b0ad13, type: 2}
   <shootOffset>k__BackingField: {x: -0.4449997, y: 0, z: -0.1318208}
   <shootZRotation>k__BackingField: 0
-  <BPMDelay>k__BackingField: 3
+  <BPMDelay>k__BackingField: 2
   <inputDelay>k__BackingField: 0
   <mercyDelay>k__BackingField: 0

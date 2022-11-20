@@ -36,13 +36,13 @@ public class SceneManager : MonoBehaviour
     public void LoadScene(Scene scene)
     {
         loadedScenes.Add(scene);
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene.name, LoadSceneMode.Additive);
     }
 
     public void LoadScene(string scene)
     {
         loadedScenes.Add(GetSceneByName(scene));
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene, LoadSceneMode.Additive);
     }
 
     public Scene GetSceneByName(string scene)

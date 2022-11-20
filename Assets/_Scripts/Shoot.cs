@@ -40,8 +40,8 @@ public class Shoot : MonoBehaviour
         projectile.transform.SetParent(transform.parent, true);
         if (GetComponent<Enemy>())
         {
-            projectile.GetComponent<ProjectileProp>().direction = -GetComponent<Enemy>().weapon.right;
-            projectile.GetComponent<ProjectileProp>().angle = GetComponent<Enemy>().weapon.rotation;
+            projectile.GetComponent<ProjectileProp>().direction = -GetComponent<Enemy>().weaponPivot.right;
+            projectile.GetComponent<ProjectileProp>().angle = GetComponent<Enemy>().weaponPivot.rotation;
         }
     }
 

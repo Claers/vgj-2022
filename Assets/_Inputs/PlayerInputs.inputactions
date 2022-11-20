@@ -367,6 +367,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "8039db91-fc04-43e0-97f3-a386863f00bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -840,6 +849,17 @@
                     "processors": "",
                     "groups": "Gamepad;Touch",
                     "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "356d6619-5296-4193-bea0-5ec906136895",
+                    "path": "*/{Submit}",
+                    "interactions": "Hold(duration=1.5)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "action": "Skip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

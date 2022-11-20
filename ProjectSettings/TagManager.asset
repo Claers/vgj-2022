@@ -9,6 +9,7 @@ TagManager:
   - PlayerProjectile
   - EnnemyProjectile
   - Enemy
+  - PlayerHeal
   layers:
   - Default
   - TransparentFX

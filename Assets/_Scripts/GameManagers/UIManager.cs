@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     {
         if (Main.Instance.GameManager.state == State.playing)
         {
-            playerHealtText.text = Main.Instance.MainPlayer.Data.PlayerHealth.ToString();
+            playerHealtText.text = Main.Instance.MainPlayer?.Data.PlayerHealth.ToString();
         }
     }
 

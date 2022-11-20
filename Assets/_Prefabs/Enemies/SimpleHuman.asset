@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SimpleHuman
   m_EditorClassIdentifier: 
   <enemyHealth>k__BackingField: 3
-  <aimSpeed>k__BackingField: 10
+  <aimSpeed>k__BackingField: 50
   <shootDatas>k__BackingField:
   - {fileID: 11400000, guid: 28ab6309202c81d4d9a914352e9d8ce0, type: 2}

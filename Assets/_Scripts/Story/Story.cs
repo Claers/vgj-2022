@@ -92,17 +92,27 @@ public class Story : MonoBehaviour
     {
         Main.Instance.CameraManager.mainCamera.gameObject.SetActive(false);
         Main.Instance.CameraManager.UICamera.gameObject.SetActive(false);
-        Main.Insta
+        Main.Instance.Input.MenuActions.Skip.performed += SkipCinematic;
     }
 
     void OnDisable()
     {
         Main.Instance.CameraManager.mainCamera.gameObject.SetActive(true);
         Main.Instance.CameraManager.UICamera.gameObject.SetActive(true);
+        Main.Instance.Input.MenuActions.Skip.performed -= SkipCinematic;
     }
 
     void Start()
     {
+    }
+
+    void SkipCinematic(InputAction.CallbackContext context)
+    {
+        if (actualCoroutine != null)
+        {
+            StopCoroutine(actualCoroutine);
+        }
+        Main.Instance.GameManager.CinematicDone();
     }
 
 

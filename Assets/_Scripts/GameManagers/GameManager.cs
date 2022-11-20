@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         if (state == State.playing)
         {
-            if (Main.Instance.MainPlayer.Data.PlayerHealth <= 0)
+            if (Main.Instance.MainPlayer?.Data.PlayerHealth <= 0)
             {
                 GameOver();
             }
@@ -68,9 +68,10 @@ public class GameManager : MonoBehaviour
         Main.Instance.SceneManager.LoadScene(Main.Instance.SceneManager.scenes.LevelScenes[lvlNb]);
     }
 
-    public void PlayGame()
+    public IEnumerator PlayGame()
     {
         state = State.playing;
+        yield return new WaitForSeconds(2);
         Main.Instance.Input.PlayerActions.Move.Enable();
         Main.Instance.Input.PlayerActions.Shoot.Enable();
         Time.timeScale = 1;
@@ -94,7 +95,8 @@ public class GameManager : MonoBehaviour
     public void CinematicDone()
     {
         Main.Instance.SceneManager.UnloadScene(Main.Instance.SceneManager.scenes.CinematicScenes[lvlNb]);
-
+        LoadGame();
+        StartCoroutine(PlayGame());
     }
 
     void GameOver()
